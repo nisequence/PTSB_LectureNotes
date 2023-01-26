@@ -1,0 +1,94 @@
+/* Comments look different here! */
+/* 
+    ? * CSS Rule-set / Rules : the styling for a particular element or multiple elements
+
+    Building Blocks of a Rule-set:
+    selector {
+        [ Declaration Block is the content of the {} ]
+        property: value;
+    }
+
+    *Hierarchy:
+    - !important
+    - Inline CSS
+    - ID Selectors
+    - Class Selectors
+    - Elements
+ */
+ /* We are targeting the element "nav". */
+nav {
+    background-color: rgba(215, 123, 123, 0.6);
+    /* 
+        - preset colors: red, blue, yellow, etc
+        - rgb & rgba (red, green, blue, alpha)- alpha determines transparency- ex: rgba(200, 15, 100, .5)
+        - Hexadecimal- 16 digits: 0-9, A-F- ex: #d2d2d2
+    */
+    overflow: hidden;
+}
+
+/* *If targeting elements with a class, use "." */
+.btn {
+    /* ? * Element options can be found on w3schools.com, Stack Overflow (check dates), or Google it! */
+    float: right;
+        /* shifts buttons to right of page */
+    color: black;
+        /* color of the text */
+    text-align: center;
+        /* text is centered within the clickable space for each button */
+    padding: 14px 16px;
+        /* creates space around each of the elements */
+    text-decoration: none;
+        /* default decoration for links will be underlined */
+    font-size: 17px;
+        /* text size for each button */
+}
+
+/* *If targeting elements with an id, use "#" - id rules will supersede any class rules that apply to these elements. */
+#home {
+    float: left;
+    color: grey !important;
+        /* reminder: !important trumps any other rules, including inline from the HTML code */
+}
+/* 
+    ? * Compound Operators:
+        >   Refers to direct children of an element
+        ,   Matching selector
+        +   Immediate sibling of an element
+        ~   Subsequent/Preceding sibling of an element
+*/
+
+nav .btn {
+    text-shadow: 2px 2px 2px black;
+}
+
+div .paragraph > p {
+    /* targeting any div with a class "paragraph" that is holding a <p> element */
+    color: violet;
+}
+
+.paragraph + div {
+    /* targeting only the immediate sibling that is a div of class items "paragraph" */
+    color: #e6bd9c;
+}
+
+/* 
+    ? * Pseudo-Class Selectors
+        - Interactive effects, making elements "do" things
+*/
+
+a:hover {
+    color: lightblue;
+    /*
+    mousing over any "a" tag will alter its color
+        - "home" doesn't change due to "!important"
+     */
+}
+
+a:active {
+    color:lime;
+    text-shadow: 2px 2px 2px rgb(255, 255, 255);
+}
+
+a:visited {
+    color:aqua;
+}

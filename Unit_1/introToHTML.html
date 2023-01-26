@@ -1,0 +1,148 @@
+<!-- 
+    ? * Comments:
+    - CTRL + / or CMD + / -> Quick key to create a comment line.
+    - ALT+Shift+A or OPT+Shift+A -> Quick key to create a comment field
+    - Comments are ignored when the code is compiled and run.
+-->
+<!-- 
+    "!" or "Bang" is a way for us to quickly create a boilerplate for our HTML document.
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <!-- 
+        - DOCTYPE declares exactly what it is, an HTML document.
+        - lang: notes what the language of the document is. Helps assist search engines & browsers.
+        - The head tag holds all of our meta data for the document.
+        - The meta data holds various information such as the title of the document, viewport settings, and links to other files like CSS.
+    -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro to HTML</title>
+    <!-- 
+        - charset: Defines which characters are available, such as 0-9, A-Z, and symbols.
+            - UTF- 8 covers almost all of the characters in many languages.
+        - http-equiv: Allows us to render older browser versions if necessary.In this case, we are targeting Edge; however this will not exclude other browsers such as Chrome or Firefox.
+        - name & content: Details on the user's viewport, or screen, an auto-scales as necessary.
+        - title: Details the title of our document. This is displayed in the tab of the browser page.
+    -->
+</head>
+<!-- 
+    ? * Body: 
+        - What the client will display when rendering.
+        - Where the HTML elements live.
+-->
+<body>
+    <!-- 
+        ?HTTP Methods: (used as data transfer protocols)
+            - GET
+            - POST
+            - PATCH
+            - PUT
+            - DELETE
+        ?3 Major Languages:
+            - HTML, HyperText Markup Language, the foundation of elements on the page. The entry point for a webpage is the index.html
+            - CSS, Cascading Style Sheets, the styling/look of the elements on the page
+            - JavaScript, the ability to make things happen; the "logic" that allows the site to process data, etc.
+     -->
+    <!-- 
+        ?HTML is made of:
+            - Elements: building blocks of HTML ~ there are different types of elements and they are written as tags, aka Nodes of the document
+            - Attributes: are defined in the opening tag of an element ~ they give the element more functionality, ex: class, id, style, href, etc.
+      -->
+
+    <h1>Examples of Structural Elements:</h1>
+    <div>
+        <div>
+            - h1: heading ~ these range from h1-h6, the text gets smaller as the number increases. <br>
+            - div: division ~ helps keep things organized <br>
+            - br: break ~ separation <br>
+            - p: paragraph ~ text element <br>
+            - img: provides us an element to an image (self-closing) <br>
+            - span: allows us to write a block of text without line breaks
+        </div>
+
+        <h2>Sample h2</h2>
+        <h3>Sample h3</h3>
+        <p>Here is a paragraph element!</p>
+        <!-- Using emmet, we can inject "lorem" and hit tab to populate a block of text. You can specify that you want a certain number of words in the example text by typing "lorem#". For example, typing "lorem100" and pressing enter will give you 100 words of example text. -->
+        <span>Span content: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic soluta illum architecto veniam autem libero culpa porro quidem non voluptatum, animi atque minus iste quae obcaecati facilis saepe eligendi? Ipsum?</span>
+        <img src = "https://assets.website-files.com/5f4577933a0688792f77983b/5ffcaf5bf69d7dbee581b8e3_01_11-21_UPRIGHT_LOGO_800.png" alt = "Upright Logo">
+            <!-- 
+                ? * img tag has two default attributes
+                    - src
+                        - required
+                        - source of the image
+                        - could be located in an assets folder or located on the web
+                    - alt
+                        - technically optional, but HIGHLY recommended
+                        - alternate text; used in case image doesn't load
+                        - text that is read by screen readers for the visually impaired
+                        - can be a source for SEO (Search Engine Optimization)
+                    - title
+                        - can help with tool-tips
+            -->
+        <img src = "/assets/UprightLogo.png" alt ="Upright Logo">
+    </div>
+
+    <h1>Examples of Styled Elements</h1>
+    <div>
+        <!-- 
+            emmet example: div>ul>li*6
+
+            ul: Unordered List
+            ol: Ordered List
+            li: List Item
+            asterisk 6: number of list items
+        -->
+        <div>
+            <ul>
+                <li><strong>Bolds our text</strong> but so does <b>this</b>!</li>
+                <li><em>Provides emphasis</em> or <i>italics</i>.</li>
+                <li><br>Will do a line break for us. <i>Note: no closing tag! :-)</i></li>
+                <li><hr>Gives us a horizontal rule (self-closing) or <b>dividing line</b>.</li>
+                <li><blockquote>"quote"</blockquote></li>
+                <li><pre>A way to showcase code</pre></li>
+            </ul>
+        </div>
+    </div>
+    <h1>Self-Closing Elements</h1>
+    <div>
+        <!-- 
+            input: typically used in forms, but not limited to them
+                - Many different types (only a few listed below)
+            link: won't show up in the browser, but is a way for us to connect files such as CSS. Usually located in the head tag.
+         -->
+        <input type="text">
+        <input type="email">
+        <input type="color">
+        <input type="password">
+        <input type="button" value="true">
+        <input type="date" name="Today's Date" id="Today">
+        <input type="checkbox" name="agree" id="termagreement">
+        <input type="file" name="upload" id="uploadhere">
+        <link rel="stylesheet" href="">
+    </div>
+    <h1>HTML Layout/Page Structure Elements</h1>
+    <h1>Semantic Elements</h1>
+    <!-- 
+        * These are known as Semantic Elements
+            - tag name clearly describes its meaning/content to the browser and the developer
+    -->
+    <img src = "assets/HTML Semantic Tag Example.jpg" alt = "HTML Semantic Tag Example">
+    <div>
+        <!-- Header Layout -->
+        <header>SAMPLE HEADER</header>
+        <nav> Navbar or Site Navigation</nav>
+        <aside>Side content, in example, the sidebar</aside>
+        <section>
+            Main Content/Parent Container
+            <article>First Article: Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, accusamus pariatur aliquid beatae libero qui sit eligendi tempore eos, cum ipsam nisi quisquam consequuntur quis minima molestias aspernatur officiis dolorem.</article>
+            <article>Second Article: Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi explicabo distinctio, unde ab, ipsum quasi cumque esse quo nam amet, minus possimus laborum maxime? Quas illo aperiam amet aliquid facere!</article>
+        </section>
+        <!-- Footer Layout -->
+        <footer>Footer of the Page</footer>
+    </div>
+    </body>
+</html>
