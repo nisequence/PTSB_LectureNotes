@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+}
+
+.sample {
+    height: 50px;
+    border: solid black 1px;
+    background-color: darkorange;
+    margin: 10px;
+}
+
+#block-sample {
+    display: block;
+}
+
+#inline-sample {
+    display: inline-block;
+}
+
+#none-sample {
+    display: none;
+}
+
+.block-elements > * {
+    /* references all of the direct children of class "block-elements" */
+    border: 1px solid blue;
+}
+
+.inline-elements > * {
+    /* references all of the direct children of class "inline-elements" */
+    border: 1px solid red;
+}
+
+#relative-sample {
+    height: 50px;
+    width: 50px;
+    position: relative;
+    top: 20px;
+    left: 10px;
+    /* Because #relative-sample is a child of #parent, the CSS positioning "top" and "left" (or "bottom"/"right") refers to distance away from #parent. */
+    background-color: green;
+}
+
+#absolute-sample {
+    height: 50px;
+    width: 50px;
+    position: absolute; /* CHANGED */
+    top: 20px; 
+    right: 30px; /* CHANGED */
+    /* the values "top" and "right" affect the distance from the HTML borders */
+    background-color: blue; /* CHANGED */
+}
+
+#fixed-sample {
+    height: 50px;
+    width: 50px;
+    position: fixed; /*CHANGED */
+    bottom: 20px;
+    left: 100px; /*CHANGED*/
+    /* the values "bottom" and "left" refer to distance from #parent (I think) */
+    background-color: black; /* CHANGED*/
+}
+
+#static-sample {
+    height: 50px;
+    width: 50px;
+    position: static; /*CHANGED */
+    left: 100px; /*DOESN'T MOVE*/
+    background-color: red; /* CHANGED */
+}
+

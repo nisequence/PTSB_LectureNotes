@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./cssLayout.css">
+    <title>CSS Layout</title>
+</head>
+<body>
+    <!-- 
+        ? * Options for Layout in CSS
+        * Block:
+            - Creates/puts element on a new line
+            - Default = full width of the body
+            - Can contain both block and inline elements
+        * Inline:
+            - Keeps element on the same line
+            - Default = width of content
+            - Can ONLY contain data or other inline elements
+    -->
+    <!-- div.sample*3 -->
+    <div class="sample" id="block-sample"></div>
+    <div class="sample" id="inline-sample">Width of element content!</div>
+    <div class="sample" id="none-sample"></div>
+
+    <hr>
+
+    <h1>Block Element Examples</h1>
+    <div class="block-elements">
+        <div>Divs & h1-h6</div>
+        <p>Paragraphs</p>
+        <table>
+            <th>Tables &</th>
+            <th>Child Elements</th>
+            <tr>
+                <td>One</td>
+                <td>Two</td>
+            </tr>
+        </table>
+        <form>
+            Forms
+        </form>
+        <ul>
+            <li>Unordered Lists</li>
+        </ul>
+        <ol>
+            <li>Ordered Lists</li>
+        </ol>
+        <nav>Nav</nav>
+    </div>
+    <h1>Inline Element Examples</h1>
+    <div class="inline-elements">
+        <span>Span</span>
+        <a href="#">anchor tags</a>
+        <i>italics</i>
+        <em>emphasis</em>
+        <b>bold</b>
+        <strong>strong</strong>
+        <img src="#" alt="img tags">
+        <button>buttons</button>
+    </div>
+
+    <hr>
+
+    <!-- 
+        ? * CSS Position Property:
+            - Relative: element is relative to its parent or ancestor & can change position from its parent with top, left, etc.
+            - Absolute: element is below the parent by default but can change position from corners of the HTML doc with top, left, etc.
+            - Fixed: element is governed by the viewport of the browser - what the user is using will determine where it is at
+            - Static: works just like relative, but doesn't have the options to be moved with the properties of top/left/right/bottom
+            "position: relative" means "my children are positioned relative to ME".
+            "position: absolute" means "I am positioned relative to my parent".
+    -->
+
+    <div class="sample" id="parent"><p>parent</p>
+        <div id="relative-sample"><p>relative child</p></div>
+        <!-- Because #relative-sample is a child of #parent, the CSS positioning "top" and "left" (or "bottom"/"right") refers to distance away from #parent. -->
+        <div id="absolute-sample"><p>absolute child</p></div>
+        <!-- sits below parent or can be given values referring to distance from HTML doc borders -->
+        <div id="fixed-sample"><p>fixed child</p></div>
+        <!-- moves with user scroll -->
+        <div id="static-sample"><p>static child</p></div>
+        <!-- like relative, but top/left/right/bottom will not work -->
+    </div>
+</body>
+</html>
