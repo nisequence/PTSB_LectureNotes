@@ -100,3 +100,89 @@ if (!rain) {
 } else {
     console.log("Bring your umbrella!")
 }
+
+// * Switch Statement
+/* 
+    keywords:
+        - switch
+        - case
+        - break
+            - takes us out of our code block
+        - default
+            - run if no cases match
+    //                                   //
+    Structure:
+    switch(expression) {
+        case ... :
+            return;
+            break;
+        case ... :
+            return;
+            break;
+        case ... :
+            return;
+            break;
+        default:
+            return;
+    }
+*/
+
+let officeCharacter = "Dwight";
+
+switch (officeCharacter) {
+    case "Michael":
+        console.log("My mind is going a mile an hour.");
+        break;
+    case "Dwight":
+        console.log("Perfectenschlag");
+        break;
+    case "Jim":
+        console.log("Bears. Beets. Battlestar Galactica");
+        break;
+    case "Pam":
+        console.log("Yup");
+        break;
+    default:
+        console.log(`I'm sorry, ${officeCharacter}, but do I know you?`);
+}
+
+// String interpolation: using a variable in a string with backticks, dollar sign, and {} -
+// ! Quotes ("" and '') will not work here!
+
+let myName = "Kate";
+let bff = "Ben";
+console.log(`My name is ${myName} and my best friendo is ${bff}!`)
+
+// let num = 5; case 2 runs
+// let num = -7; case 1 runs
+// let num = 0; default runs
+let num = -20; // default runs
+
+switch (true) {
+    case num < 0 && num > -10:
+        console.log("Case 1 ran.");
+        break;
+    case num > 0:
+        console.log("Case 2 ran.");
+        break;
+    default:
+        console.log("Default ran, no case worked.")
+        break;
+}
+
+let grade = "D";
+switch (true) {
+    case grade == "A": // prints "B" case
+    case grade == "B":
+        console.log("Great job!")
+        break;
+    case grade == "C":
+        console.log("Doing well, but maybe study a bit more.")
+        break;
+    case grade == "D": // prints "F" case
+    case grade == "F":
+        console.log("Uh, I would really start studying...")
+        break;
+    default:
+        console.log("That's not a grade value...")
+}
