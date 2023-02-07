@@ -1,5 +1,5 @@
 /* 
-    ? Some fun fact vocab & good to know things:
+    ? * Some fun fact vocab & good to know things:
         - JS Statement: 
             - any block of code that is performing an action, i.e. the code directions we give the program, let x = 15;
             - JS programs are all just a bunch of statements.
@@ -27,7 +27,7 @@
 */
 
 /* 
-    If Statements: gives a yes ("true") response if the expression is true/valid
+    * If Statements: gives a yes ("true") response if the expression is true/valid
 
     Structure:
     if(expression evaluated) {
@@ -52,7 +52,7 @@ if (isOn == false) {
 }
 
 /* 
-    If Else Statement: gives us a no ("false") response if the expression is not true/valid. A true code block and a false code block.
+    * If Else Statement: gives us a no ("false") response if the expression is not true/valid. A true code block and a false code block.
 */
 
 let weather = 75;
@@ -146,7 +146,7 @@ switch (officeCharacter) {
         console.log(`I'm sorry, ${officeCharacter}, but do I know you?`);
 }
 
-// String interpolation: using a variable in a string with backticks, dollar sign, and {} -
+// *String interpolation: using a variable in a string with backticks, dollar sign, and {} -
 // ! Quotes ("" and '') will not work here!
 
 let myName = "Kate";
@@ -186,3 +186,52 @@ switch (true) {
     default:
         console.log("That's not a grade value...")
 }
+
+// * Ternary
+/* 
+    Always an if/else style conditional at minimum.
+    Structure:
+    expression ? perform-if-true : perform-if-false
+*/
+
+let expression = false; 
+
+expression ? console.log("Runs true") : console.log("Runs false");
+
+let newNum = 6;
+
+newNum > 0 ? console.log("Yes, greater than 0.") : console.log("No, not greater than zero.");
+
+// same result, just written as an if/else
+if (newNum > 0) {
+    console.log("yes");
+} else {
+    console.log("no");
+}
+
+// * Else/If Statements
+
+let anotherNum = 3;
+
+if (anotherNum == 0) {
+    console.log("Hello");
+} else if (anotherNum > 0) {
+    console.log("Hey there!");   
+} else {
+    console.log("Goodbye");
+}
+
+anotherNum == 0
+    ? console.log("Hello") // prints if equal to
+    : anotherNum > 0 
+    ? console.log("hi") // prints if greater than 0
+    : console.log("goodbye again"); // prints if less than 0
+
+// rare to use more than three options
+
+let numOne = -5;
+let numTwo = 22;
+
+let value = numOne + numTwo > 1 ? numOne + numTwo : 0;
+// here we have a Ternary Conditional labeled as the variable "value"
+console.log(value); // will print the results of our Ternary Conditional ("17" in this case)
