@@ -26,7 +26,7 @@ for (i = 0; i <= 20; i += 2) {
     console.log(i);
 }
 
-//Challenge: using a for loop, count from 10 to 0, going down by 1
+// Challenge: using a for loop, count from 10 to 0, going down by 1
 for (n = 10; n > -1; n--) {
     console.log(n);
 }
@@ -49,7 +49,7 @@ for (let i = 1; i <= 50; i++) {
 
 console.log("Sum: " + sum);
 
-// * "For In Loops": loops through the properties of an object
+// * "For In Loops": loop through the properties of an object
 /* 
     Structure:
     for (key in object) {
@@ -95,7 +95,7 @@ for (cat in catArray) {
     console.log(catArray[cat]); // lists each value within "catArray"
 }
 
-// * "For Of Loops" loop through the values of an iterable object
+// * "For Of Loops": loop through the values of an iterable object
 /* 
     iterable, an object that has iterable properties (think "reiterate")
 
@@ -124,4 +124,9 @@ for (bubbles of catArray) {
     } else {
         console.log("Not a maine coon... :( ");
     }
+}
+
+// ? PRACTICE
+for (z = 100; z > 0; z--) {
+    console.log(z);
 }
