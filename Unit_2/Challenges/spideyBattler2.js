@@ -1,33 +1,31 @@
 /* 
-    Let's build something cool!
-    We will make a Spider Man battle program that randomly pits Spidey vs a foe.
+    ? spideyBattler2 Changes!
+    - Spidey can now hit up to 5!
+    - Villains now have a specific hit power.
+    - Fixed bug in which Spidey would never die if skipping HP = 0.
 
-    - Set Spidey's HP
-    - Create a villain array of villain objects for Spidey to battle
-    - Make something to randomly pick a villain
-    - Use a do while loop to monitor if the villain's HP is above 0
-    - In the while loop make attacks the effect HP of both Spidey and the Villain
-        - Add some console.logs to give us messages throughout the battle
-    - Create an ending message with a conditional on who won the battle
 */
-
 let spideyHP = 20;
 let badGuys = [
     {
         baddie: "Green Goblin",
-        hp: 15
+        hp: 15,
+        hit: 1.5,
     },
     {
         baddie: "Venom",
-        hp: 25
+        hp: 25,
+        hit: 2.5
     },
     {
         baddie: "Stilt-Man",
-        hp: 5
+        hp: 5,
+        hit: 1
     },
     {
         baddie: "Thug",
-        hp: 0
+        hp: 0,
+        hit: 0
     },
 ];
 
@@ -52,19 +50,19 @@ do {
 
     // Message & attack from villain
     console.log(`${villain.baddie} hits Spider-Man!`);
-    spideyHP--; // villain attacking for 1 hp
+    spideyHP -= villain.hit; // villain attacking (personalized hit)
 
     // Log Spidey's current health
     console.log('Spider-Man HP: ', spideyHP);
 
     // If statement, should SpideyHP = 0
-    if (spideyHP === 0) {
+    if (spideyHP <= 0) {
         console.log("Oh no, looks like Spidey's been knocked out!");
         break;
     }
 
     // Make random spidey attack
-    let spideyHit = Math.floor(Math.random() * 3);
+    let spideyHit = Math.floor(Math.random() * 5);
     console.log(`Spider-Man hits ${villain.baddie} for ${spideyHit} damage!!!!`);
 
     // Villain HP math & message

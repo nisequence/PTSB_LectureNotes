@@ -1,36 +1,29 @@
 /* 
-    Let's build something cool!
-    We will make a Spider Man battle program that randomly pits Spidey vs a foe.
+    ? spideyBattler3 Changes!
+    - commented out line of code in which baddies were logged with all info before fight
+    - created random hit points for villains
+    - increased overall HP except for Thug
 
-    - Set Spidey's HP
-    - Create a villain array of villain objects for Spidey to battle
-    - Make something to randomly pick a villain
-    - Use a do while loop to monitor if the villain's HP is above 0
-    - In the while loop make attacks the effect HP of both Spidey and the Villain
-        - Add some console.logs to give us messages throughout the battle
-    - Create an ending message with a conditional on who won the battle
 */
-
-let spideyHP = 20;
+let spideyHP = 100;
 let badGuys = [
     {
         baddie: "Green Goblin",
-        hp: 15
+        hp: 75,
     },
     {
         baddie: "Venom",
-        hp: 25
+        hp: 125,
     },
     {
         baddie: "Stilt-Man",
-        hp: 5
+        hp: 25,
     },
     {
         baddie: "Thug",
-        hp: 0
+        hp: 0,
     },
 ];
-
 // console.log(badGuys.length); would grab the array length
 
 let random = Math.floor(Math.random() * badGuys.length); // creates a random number not greater than array length
@@ -38,10 +31,11 @@ let random = Math.floor(Math.random() * badGuys.length); // creates a random num
 
 // Grab random villain from array
 let villain = badGuys[random];
-console.log(villain);
+// console.log(villain); just to test this works!
 
 // Message on who appeared
 console.log(`${villain.baddie} has appeared and is up to no good!`);
+let villainHitLimit = villain.hp * 0.25;
 
 do {
     // Take out the thug asap
@@ -50,21 +44,28 @@ do {
         break;
     }
 
+    // Calculate attack from villain
+    let villainHit = Math.floor(Math.random() * villainHitLimit);
+    // console.log(villainHit); testing to make sure it works
+    
     // Message & attack from villain
-    console.log(`${villain.baddie} hits Spider-Man!`);
-    spideyHP--; // villain attacking for 1 hp
+    console.log(`${villain.baddie} hits Spider-Man for ${villainHit} damage!`);
+    spideyHP -= villainHit; // villain attacking (personalized hit)
 
     // Log Spidey's current health
     console.log('Spider-Man HP: ', spideyHP);
 
     // If statement, should SpideyHP = 0
-    if (spideyHP === 0) {
+    if (spideyHP <= 0) {
         console.log("Oh no, looks like Spidey's been knocked out!");
         break;
     }
 
+    // break line
+    console.log("--------");
+
     // Make random spidey attack
-    let spideyHit = Math.floor(Math.random() * 3);
+    let spideyHit = Math.floor(Math.random() * 25);
     console.log(`Spider-Man hits ${villain.baddie} for ${spideyHit} damage!!!!`);
 
     // Villain HP math & message
