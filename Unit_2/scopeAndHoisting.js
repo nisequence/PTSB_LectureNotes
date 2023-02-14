@@ -45,3 +45,76 @@ function newScope() {
 newScope(); // 1200
 console.log("Outside of the newScope function: " + y); // 1200 (was redefined in function, not re-declared)
 // console.log(z); - gives an error as z does not exist globally
+
+/* 
+    ? Var vs. Let
+    Variable keywords:
+        - const: cannot be reassigned
+        - var: scoped to nearest function block
+        - let: scoped to the nearest enclosing block
+*/
+
+// * Var example - scoped to function block, variable declared inside {} can be accessed from outside the block
+
+var a = 12;
+
+function varTest() {
+    var a = 33;
+    console.log(`Var - within function, before if: ${a}`) // 33
+
+    if (true) {
+        var a = 45;
+        console.log(`Var - within if: ${a}`); // 45
+    }
+    console.log(`Var - outside if, inside function: ${a}`); // 45 (bleeds through)
+}
+varTest();
+console.log(`Var - outside function/globally: ${a}`); // 12
+
+// * Let Example - scoped to enclosing block, variable declared inside of a { } block cannot be accessed outside the block.
+
+let b = 12;
+
+function letTest() {
+    let b = 100; 
+    console.log(`Let - start of function: ${b}`); // 100
+    if (true) {
+        let b = 50;
+        console.log(`Let - within if: ${b}`); // 50
+    }
+    console.log(`Let - end of function ${b}`); // 100
+}
+letTest();
+console.log(`Let - outside of function/globally ${b}`); // 12
+
+/* 
+    ? Hoisting: JS's default behavior of moving declarations to the top of the current scope (to the top of the current script/function/file)
+        - JS reads from top to bottom in two passes, line by line
+            - 1st pass:
+                - made by the compiler
+                - this is where hoisting is initiated
+                - compiled for execution
+            - 2nd pass:
+                - variables are assigned
+                - execution phase
+                - runs any hoisted code
+        * - JS only hoists declarations ("let a"), not initializations ("a = 10" or "let a = 10")
+        - to avoid bugs, always declare all variables at the beginning of every scope
+            - top of the file if global
+            - top of the function/loop/etc. if local
+*/
+// ! console.log(`Before: ${personName}`); - ReferenceError: Cannot access 'personName' before initialization
+let personName = "Nicole"; // JS hoists existence of "personName", not what it means
+console.log(`After: ${personName}`); // works now - AFTER initialization (meaning) is provided
+
+b(); // works even though function comes after, because it has been hoisted
+
+function b() {
+    console.log("I'm hoisted");
+}
+
+// ! newFunc(); does NOT work as above because it is an arrow function (not hoisted)
+
+let newFunc = () => {
+    console.log("Hoisted?");
+}
