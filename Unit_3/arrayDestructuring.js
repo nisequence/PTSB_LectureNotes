@@ -94,4 +94,77 @@ Persons Array:  [
 ]
 */
 
-console.log("Copied Persons Array:", copiedPersons2); // Copied Persons Array: [ { name: 'Jane', age: 28 }, { name: 'John', age: 35 } ]
+console.log("Copied Persons Array:", copiedPersons2); // Copied Persons Array: "[ { name: 'Jane', age: 28 }, { name: 'John', age: 35 } ]"" // (no Anna)
+
+// * Variables within Memory
+// First assignment/original assignment
+let x = 10;
+let y = "abc";
+let z = null;
+
+// Reassign to another variable
+let a = x;
+console.log(a); // 10
+let b = y;
+console.log(b); // "abc"
+
+// Reassign a and b
+a = 5;
+b = "def";
+console.log (x, y, a, b); // 20, abc, 5, def
+
+// --------------------
+
+let arr = [];
+arr.push(1);
+console.log(`arr: ${arr}`);
+
+let reference = [1];
+let refCopy = reference;
+console.log("refCopy:", refCopy); // prints brackets
+console.log(`refCopy in backticks: ${refCopy}`); // no brackets
+
+reference.push(2); // both reference and refCopy will have the 2 added
+console.log(reference, refCopy); // [ 1, 2 ] [ 1, 2 ]
+
+// ! JS References both reference and refCopy in a heap as the same thing
+refCopy.push(3);
+console.log(reference, refCopy); // anticipated [ 1, 2 ] [ 1, 2, 3 ]
+// received [ 1, 2, 3 ] [ 1, 2, 3 ]
+
+// -----------------------------------
+/* 
+    ? Rest Syntax
+
+    We can use the spread operator syntax, referred to as 'rest' syntax when working with array destructuring, to package up the REST of the values in the referenced array, and return them as their own array.
+
+    - Looks exactly like spread syntax: ...
+    - Spread "expands" an array
+    - Rest "condenses" an array
+*/
+
+const fullNameAgain = [
+    "Jane",
+    "Doe",
+    "Mrs.",
+    {
+        month: 03,
+        date: 22,
+        year: 1973,
+    },
+    2,
+    "test",
+    "4",
+    true,
+    false,
+];
+
+let janesName = fullNameAgain[0];
+console.log(janesName); // Jane
+
+// Using both array destructuring and rest:
+let [newFirstName, newLastName, , ...otherInfo] = fullNameAgain;
+console.log(`newFirstName: ${newFirstName}`);
+console.log(`newLastName: ${newLastName}`);
+console.log(`otherInfo: ${otherInfo}`); // [object Object],2,test,4,true,false
+console.log(otherInfo); // [ { month: 3, date: 22, year: 1973 }, 2, 'test', '4', true, false ]
