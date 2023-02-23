@@ -43,3 +43,17 @@ console.log(avengers[5][0]); // longs first index of 5, which is "Tony" in this 
 /* 
     Try building out and console.logging its values later!
 */
+
+let fruits = ["apples", "banana", "cherry"];
+console.log(fruits);
+fruits[fruits.length - 1];
+console.log(fruits[fruits.length - 1]);
+console.log(fruits[99]);
+fruits[0] = 'apricot';
+console.log(fruits);
+/* 
+[ 'apples', 'banana', 'cherry' ]
+cherry
+undefined
+[ 'apricot', 'banana', 'cherry' ]
+*/
