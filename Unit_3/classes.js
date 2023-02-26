@@ -90,3 +90,98 @@ function processItem(itemName, desc, cost) {
 
 let useFunction = processItem(iType, iDesc, iCost);
 console.log(useFunction);
+
+console.log("------------------ Sunday 2/26/23 ----------------------")
+/* 
+? Class Methods
+    - Generating/creating our own methods for use with our objects
+
+*/
+
+class DeptInventory {
+    constructor(dept) {
+        this.department = dept;
+        this.items = []; // empty array - makes a default value for this key
+
+    }
+
+    //     1          2     
+    addToInventory(newItem) {
+    //   3          4 
+        this.items.push(newItem);
+        console.log("An item was added to the store!");
+        console.table(this.items);
+
+    }
+}
+
+//              <------ 5 --------------->
+let dryGoods = new DeptInventory("Dry Goods");
+let itemThree = new Item("canned corn", "canned", 0.79);
+
+// 6
+dryGoods.addToInventory(itemThree);
+dryGoods.addToInventory(itemTwo);
+dryGoods.addToInventory(itemOne);
+console.log(dryGoods);
+
+/* 
+* Class Method Definitions
+    1. Establishing a name for our method
+    2. This particular method requires a parameter
+    3. "This" keyword is referencing the "dryGoods" object (in this scenario) and adding to its array of items
+    4. Using an array method ("push") to add to the "items" array that belongs to dryGoods
+    5. Generating/creating a new dept object named "dryGoods"
+    6. Using dot notation to target our method  within our dryGoods object and passing items to it
+*/
+
+
+//* Factory Methods
+
+class Expense {
+    // static keyword, create/build a new expense
+    // ! static keywords are only reachable within the "Expense" class itself, not by children or global
+    static addUpChargeForProfit(wholesale) {
+        // calculate the wholesale charge and store in a variable
+        let upCharge = wholesale + (wholesale*0.25)
+        // return (so it is accessible) the new expense
+        return new Expense(wholesale, upCharge);
+    }
+
+    // basic constructor of key value pairs
+    constructor(w, u) {
+        this.purchased_price = w;
+        this.sell_at = u;
+    }
+
+    // addTax method
+    addTax(x) {
+        // set x value to percentage variable
+        let percentage = x;
+        // set the value of sell_at to variable
+        let saleCost = this.sell_at;
+
+        // write and set the taxed cost
+        this.plus_sales_tax = ((saleCost * x) + saleCost).toFixed(2);
+    }
+}
+
+let itemToSell = Expense.addUpChargeForProfit(1);
+console.log(itemToSell);
+
+let anotherItemToSell = Expense.addUpChargeForProfit(2);
+console.log(anotherItemToSell);
+
+/* 
+* Class Inheritance
+With each object we create, those methods are included to those specific objects - basically the "children" objects inherit from the "parent", class
+*/  
+
+// anotherItem has the "addTax" method due to class inheritance
+anotherItemToSell.addTax(0.06);
+console.log(anotherItemToSell);
+
+// anotherItemToSell.addUpChargeForProfit(3);
+// ! TypeError: anotherItemToSell.addUpChargeForProfit is not a function
+
+// Note: that anything that is static will not be inherited into those new objects. For our itemToSell and anotherItem, we won't have access to the addUpchargeForProfit method.
