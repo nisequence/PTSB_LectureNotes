@@ -121,3 +121,5 @@ console.log(`With a tip of $${dinnerBill.tip.toFixed(2)}`);
         - All children can use the methods of the parents
         - Children cannot access properties of other children (sibling-to-sibling) - including methods
 */
+
+console.log("The end!");
