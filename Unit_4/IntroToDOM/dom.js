@@ -169,9 +169,132 @@ let newListItem = document.createElement('li');
 let ul = document.getElementById("ulToDo");
 console.log(ul);
 
+newListItem.className = "listItem";
 newListItem.innerText = "New Item Test";
 // Styling or any other attributes are not set to this new element because JS reads top to bottom
 ul.appendChild(newListItem);
 
 // We can see how the other li elements are different via the console
 console.log(li);
+
+console.log('\n--------------\n');
+// .getElementsByClassName()
+let liClass = document.getElementsByClassName('listItem');
+console.log("ByClassName:", liClass);
+
+// ? Event Listeners
+/* 
+    Allow us to execute a function when an event occurs.
+    .addEventListener()
+        - DOM node method
+        - requires an event to "listen" for or type and callback function
+*/
+
+let btn = document.getElementById('submit'); //"Grabs"/creates reference to the button w/ id "submit"
+// If we wanted to see all node/element properties available to us
+let btnNode = document.getElementsByTagName('button');
+console.log(btnNode); // there is only one at the moment
+
+/*
+*Directly adding and testing the event Listener Method
+btn.addEventListener("click", (event) => {
+    console.log(event);
+    console.log("I clicked the button!");
+});
+*/
+
+// * To Do List
+/* 
+    Goal: have the input text be added to the list on the page.
+
+    Steps for Adding an Item to the List
+        //- Capture the input value from the HTML
+        //- Use the button and click (pass/capture that input value)
+        //- Create a new element (li)
+        //- Assign values to new element (attributes)
+            //- new li gets class (className)
+            //- assign innerText to input value
+        - Append the new element to the parent element/node/box
+
+    Functionality Step:
+        //- add event listener to the button
+        - use variables to contain the HTML tags we're referencing (document.getElementById)
+        //- build a function that creates and assigns attributes for the new li element
+
+*/
+
+// Add click event to button
+btn.addEventListener('click', addItem);
+
+let input = document.getElementById("listInput");
+let inputNode = document.getElementsByTagName('input');
+// console.log inputNote to know how to grab value
+// console.log(inputNode);
+
+// Build our function: use declarative format, name it addItem, no params
+function addItem() {
+    // capture our value from the input: .value property
+    // Targeting the input node via the variable name and whatever information is being stored in the value property
+    console.log(input.value);
+
+    // Create a new li element
+    let newItem = document.createElement('li');
+
+    // Assign property values
+    newItem.className = "listItem";
+    newItem.textContent = input.value;
+    
+    // Append new element to parent element
+    ul.appendChild(newItem);
+
+    // Reset the input to blank
+    input.value = "";
+}
+
+// * Creating something NEW!
+// Global Variables: build button, parent container, mock "faux" data
+let buildBtn = document.getElementById("table-btn");
+let parentShellDiv = document.getElementById("shell-div");
+// mock data
+const myList = [
+    'red', 'blue', 'green', 'purple', 'yellow', 'orange'
+]
+
+// Event listener with the button
+buildBtn.addEventListener("click", buildTable);
+
+// Build a function to create everything
+function buildTable() {
+    // console.log("Running BuildTable Function on button click!");
+
+    // *Create div, title, and p tag for each item of the array (forEach)
+    myList.forEach((color, i) => {
+        //console.log(color, i); //test
+        let div = document.createElement('div');
+        let h2 = document.createElement('h2');
+        let p = document.createElement('p');
+
+        // * Assign attributes of the new elements (give the content of each element)
+        h2.textContent = color;
+        h2.style.color = color;
+        p.innerHTML = `Item <u><b>${i}</b></u> in my list.`
+
+        // Add div styling
+        div.style = `
+            border: 3px solid ${color};
+            padding: 10px;
+        `;
+
+        // * Append to parent container/element ("think of nesting dolls")
+        div.appendChild(h2);
+        div.appendChild(p);
+        parentShellDiv.appendChild(div);
+    });
+
+    parentShellDiv.style = `
+        width: 100%;
+        height: 40%;
+        display: flex;
+        justify-content: space-evenly;
+    `;
+}

@@ -151,5 +151,5 @@ let changeToRed = enterState("red");
 console.log(changeToRed);
 let changeToGreen = enterState("green");
 console.log(changeToGreen);
-// ! let brokenLight = enterState("red"); (see below)
+let brokenLight = enterState("red"); // (see below)
 // ! console.log(brokenLight); -- causes throw error that we created
