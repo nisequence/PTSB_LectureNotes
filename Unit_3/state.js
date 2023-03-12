@@ -116,7 +116,7 @@ console.log(howIsKiddo());
 // Create a state object with light color keys with values of an array to the other light color options
 
 let state = {
-    green: ["yellow"],
+    green: ["yellow"], //! DO NOT USE OBJECT NAMES AS KEYS
     yellow: ["red"],
     red: ["green", "yield"],
     yield: ["red"]
