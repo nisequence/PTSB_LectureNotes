@@ -205,3 +205,24 @@ function fetchFellowship() {
 fetchFellowship();
 
 // * Error Handling with try/catch
+// Async/Await
+async function getCatFact3() {
+    try {
+        let response = await fetch(url); // works!
+        // let response = fetch(url); //! breaks - used to show "catch"
+        let results = await response.json();
+        let data = results.data[0];
+        log("Try block of try/catch:", data);
+    } catch(err) { // err is not a keyword, but catch requires a param, & catch itself is required
+        console.error(err);
+    }
+}
+
+getCatFact3();
+
+//* Error Handling with resolvers ( .catch() )
+
+fetch(url)
+    .then((r) => r.json())
+    .then((d) => log("-----> Fetch Resolver:", d.data[0]))
+    .catch((err) => console.error(err));
